@@ -52,16 +52,15 @@
                                 </li>
                             <?php endif; ?>
                         <?php else: ?>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo e(route('profile')); ?>">profile</a>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="<?php echo e(url('profile')); ?>">Profile</a>
-                                    <a class="dropdown-item" href="<?php echo e(url('category')); ?>">Category</a>
-
                                     <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -86,4 +85,4 @@
     </div>
 </body>
 </html>
-<?php /**PATH /home/vagrant/code/resources/views/layouts/app.blade.php ENDPATH**/ ?>
+<?php /**PATH /Users/bushra/code/bool /resources/views/layouts/app.blade.php ENDPATH**/ ?>
