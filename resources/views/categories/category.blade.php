@@ -15,9 +15,6 @@
            @endif
             <div class="card">
                 <div class="card-header">Category</div>
-
-
-
                 <div class="card-body">
                   <form method="POST" action="{{ url('/addCategory') }}">
                       @csrf
