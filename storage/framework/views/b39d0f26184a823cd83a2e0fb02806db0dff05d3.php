@@ -7,7 +7,8 @@
                 <div class="card-header">Profile</div>
 
                 <div class="card-body">
-                  <form method="POST" action="<?php echo e(url('/addProfile')); ?>" enctype="multipart/form-data">
+                  <form method="POST" action="<?php echo e(url('/addProfile')); ?>"
+                  enctype="multipart/form-data">
                       <?php echo csrf_field(); ?>
 
                       <div class="form-group row">

@@ -3,7 +3,7 @@
    .avatar{
      border-radius: 100%;
      max-width: 100px;
-   }
+}
    </style>
 @section('content')
 <div class="container">
@@ -53,15 +53,26 @@
                         <h4>{{ $post->post_title}}</h4>
                         <hr>
                         <img src=" {{ $post->post_image }}" alt="">
-                        <p>{{ $post->post_body }}</p>
+                        <p>{{ substr( $post->post_body, 0,150) }}</p>
                          <ul class="nav nav-pills">
                            <li role="presentation">
-                             <a href="">
-                               <span class="far fa-eye">VIEW</span>
+                             <a href='{{ url("/view/{$post->id}") }}' >
+                               <span class="far fa-eye" > VIEW </span>
+                             </a>
+                           </li>
+                           <li role="presentation">
+                             <a href='{{ url("/delete/{$post->id}") }}'>
+                               <i class="fas fa-trash-alt" >  Delete </i>
+                             </a>
+                           </li>
+                           <li role="presentation">
+                             <a href='{{ url("/edit/{$post->id}") }}'>
+                               <span class="fas fa-edit" > Edit</span>
                              </a>
                            </li>
                          </ul>
-                        <cite style="">Posted on: {{ date('M j,Y H:i', strtotime($post->update_at))}}</cite>
+                        <cite style="">Posted on: {{ date('M j,Y H:i',
+                           strtotime($post->updated_at))}}</cite>
                         <hr/>
                             @endforeach
                             @else

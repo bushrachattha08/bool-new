@@ -13,9 +13,6 @@
            <?php endif; ?>
             <div class="card">
                 <div class="card-header">Category</div>
-
-
-
                 <div class="card-body">
                   <form method="POST" action="<?php echo e(url('/addCategory')); ?>">
                       <?php echo csrf_field(); ?>

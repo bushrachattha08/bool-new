@@ -2,7 +2,7 @@
    .avatar{
      border-radius: 100%;
      max-width: 100px;
-   }
+}
    </style>
 <?php $__env->startSection('content'); ?>
 <div class="container">
@@ -53,15 +53,26 @@
                         <h4><?php echo e($post->post_title); ?></h4>
                         <hr>
                         <img src=" <?php echo e($post->post_image); ?>" alt="">
-                        <p><?php echo e($post->post_body); ?></p>
+                        <p><?php echo e(substr( $post->post_body, 0,150)); ?></p>
                          <ul class="nav nav-pills">
                            <li role="presentation">
-                             <a href="">
-                               <span class="far fa-eye">VIEW</span>
+                             <a href='<?php echo e(url("/view/{$post->id}")); ?>' >
+                               <span class="far fa-eye" > VIEW </span>
+                             </a>
+                           </li>
+                           <li role="presentation">
+                             <a href='<?php echo e(url("/delete/{$post->id}")); ?>'>
+                               <i class="fas fa-trash-alt" >  Delete </i>
+                             </a>
+                           </li>
+                           <li role="presentation">
+                             <a href='<?php echo e(url("/edit/{$post->id}")); ?>'>
+                               <span class="fas fa-edit" > Edit</span>
                              </a>
                            </li>
                          </ul>
-                        <cite style="">Posted on: <?php echo e(date('M j,Y H:i', strtotime($post->update_at))); ?></cite>
+                        <cite style="">Posted on: <?php echo e(date('M j,Y H:i',
+                           strtotime($post->updated_at))); ?></cite>
                         <hr/>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             <?php else: ?>

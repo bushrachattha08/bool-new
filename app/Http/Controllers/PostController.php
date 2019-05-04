@@ -42,4 +42,13 @@ class PostController extends Controller
       return redirect('/home')->
       with('response','Post Added Successfully');
   }
+  public function view($post_id){
+    $post = Post::where('id','=',$post_id)->get();
+    $categories = Category::all();
+    return view('posts.view',['post' => $post,'categories' => $categories]);
+
+  }
+  public function edit($post_id){
+    return $post_id;
+  }
 }
