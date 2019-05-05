@@ -33,3 +33,7 @@ Route::post('/addPost', 'PostController@addPost');
 Route::post('/addProfile', 'ProfileController@addProfile');
 
 Route::get('/view/{id}', 'PostController@view');
+
+Route::get('/edit/{id}', 'PostController@edit');
+Route::post('/editPost/{id}', 'PostController@editPost');
+Route::get('/delete/{id}', 'PostController@deletePost');
