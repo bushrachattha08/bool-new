@@ -48,9 +48,12 @@ class PostController extends Controller
   public function view($post_id){
     $posts = Post::where('id', '=', $post_id)->get();
     $likePost = Post::find($post_id);
-    $likeCtr = Like::where(['post_id' => $likePost->id])->get();
+    $likeCtr = Like::where(['post_id' => $likePost->id])->count();
+
+
+
     $categories = Category::all();
-    return view('posts.view', ['posts' => $posts,'categories' => $categories]);
+    return view('posts.view', ['posts' => $posts,'categories' => $categories,'likeCtr' => $likeCtr]);
   }
   public function edit($post_id){
     $categories = Category::all();
@@ -105,6 +108,25 @@ class PostController extends Controller
             ->get();
 
     return view('categories.categoriesposts',['categories'=> $categories, 'posts' => $posts]);
+
+  }
+  public function like($id){
+    $loggedin_user = Auth::user()->id;
+    $like_user = Like::where(['user_id' => $loggedin_user,'post_id'=> $id])->first();
+    if(empty($like_user->user_id)){
+      $user_id = Auth::user()->id;
+      $email = Auth::user()->email;
+      $post_id = $id;
+      $like = new Like;
+      $like->user_id = $user_id;
+      $like->email = $email;
+      $like->post_id = $post_id;
+      $like->save();
+      return redirect("/view/{$id}");
+    }
+    else{
+      return redirect("/view/{$id}");
+    }
 
   }
 }

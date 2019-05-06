@@ -33,7 +33,7 @@
                          <ul class="nav nav-pills">
                            <li role="presentation">
                              <a href='{{ url("/like/{$post->id}") }}' >
-                               <span class="fa fa-thumbs-up" > Like() </span>
+                               <span class="fa fa-thumbs-up" > Like({{$likeCtr}}) </span>
                              </a>
                            </li>
 
