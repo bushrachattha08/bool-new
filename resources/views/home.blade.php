@@ -60,7 +60,7 @@
                                <span class="far fa-eye" > VIEW </span>
                              </a>
                            </li>
-                          
+
                            <li role="presentation">
                              <a href='{{ url("/edit/{$post->id}") }}'>
                                <span class="fas fa-edit" > Edit</span>
@@ -80,6 +80,7 @@
                             <p> No Post Available</p>
 
                             @endif
+                            {{$posts->links()}}
                       </div>
                 </div>
             </div>

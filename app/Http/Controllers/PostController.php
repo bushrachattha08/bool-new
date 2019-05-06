@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\DB;
 use App\Category;
 use App\Post;
+use App\Like;
 use Auth;
 
 class PostController extends Controller
@@ -45,6 +47,8 @@ class PostController extends Controller
 
   public function view($post_id){
     $posts = Post::where('id', '=', $post_id)->get();
+    $likePost = Post::find($post_id);
+    $likeCtr = Like::where(['post_id' => $likePost->id])->get();
     $categories = Category::all();
     return view('posts.view', ['posts' => $posts,'categories' => $categories]);
   }
@@ -91,5 +95,16 @@ class PostController extends Controller
    Post::where('id',$post_id)->delete();
    return redirect('/home')->
    with('response','Post deleted Successfully');
+  }
+  public function category($cat_id){
+      $categories = Category::all();
+      $posts = DB::table('posts')
+            ->join('categories', 'posts.category_id', '=', 'categories.id')
+            ->select('posts.*', 'categories.*')
+            ->where(['categories.id' => $cat_id])
+            ->get();
+
+    return view('categories.categoriesposts',['categories'=> $categories, 'posts' => $posts]);
+
   }
 }

@@ -60,7 +60,7 @@
                                <span class="far fa-eye" > VIEW </span>
                              </a>
                            </li>
-                          
+
                            <li role="presentation">
                              <a href='<?php echo e(url("/edit/{$post->id}")); ?>'>
                                <span class="fas fa-edit" > Edit</span>
@@ -80,6 +80,8 @@
                             <p> No Post Available</p>
 
                             <?php endif; ?>
+                            <?php echo e($posts->links()); ?>
+
                       </div>
                 </div>
             </div>
