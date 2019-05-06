@@ -4,7 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-
+          @if(session('response'))
+           <div class="alert alert-success">{{session('response')}}</div>
+          @endif
             <div class="card">
                 <div class="card-header">Post View</div>
                 <div class="card-body">
@@ -39,7 +41,7 @@
 
                            <li role="presentation">
                              <a href='{{ url("/dislike/{$post->id}") }}'>
-                               <span class="fa fa-thumbs-down" > Dislike()</span>
+                               <span class="fa fa-thumbs-down" > Dislike({{$dislikeCtr}})</span>
                              </a>
                            </li>
                            <li role="presentation">
@@ -48,9 +50,29 @@
                              </a>
                            </li>
                          </ul>
-                        <cite style="">Posted on: {{ date('M j,Y H:i',
-                           strtotime($post->updated_at))}}</cite>
-                        <hr/>
+
+                            @endforeach
+                            @else
+                            <p> No Post Available</p>
+
+                            @endif
+                            <form method="POST" action= '{{ url("/comment/{$post->id}")}}' >
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea id="comment" rows="6" class="form-control" name="comment"
+                                required autofocus></textarea>
+                              </div>
+                              <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-lg btn-block">
+                                  Post Comment</button>
+                              </div>
+                            </form>
+
+                            <h4>Comments</h4>
+                            @if(count($comments) > 0)
+                            @foreach($comments ->all() as $comment)
+                            <p>{{ $comment->comment }}</p>
+                            <p>Posted by: {{ $comment->name }}</p>
                             @endforeach
                             @else
                             <p> No Post Available</p>
