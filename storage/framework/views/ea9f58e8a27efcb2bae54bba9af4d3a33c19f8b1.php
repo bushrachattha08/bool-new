@@ -3,6 +3,12 @@
      border-radius: 100%;
      max-width: 100px;
 }
+   .profile{
+     align-items: left;
+   }
+   .posts{
+     align-items: right;
+   }
    </style>
 <?php $__env->startSection('content'); ?>
 <div class="container">
@@ -17,9 +23,34 @@
            <?php if(session('response')): ?>
             <div class="alert alert-success"><?php echo e(session('response')); ?></div>
            <?php endif; ?>
+
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">
+                   <div class="panel panel-default text-center">
+                     <div class="panel-heading">
+                       <div class="row">
+                         <div class="col-md-4">Blog</div>
+                         <div class="col-md-8">
+                           <form method="POST" action= '<?php echo e(url("/search")); ?>' >
+                             <?php echo e(csrf_field()); ?>
+
+                             <div class="input-group">
+                               <input type="text"  name="search" class="form-control"
+                               placeholder="Search for....">
+                               <span class="input-group-btn">
+                                 <button type="submit" class="btn btn-default">
+                                   Go!
+                                 </button>
+                               </span>
+
+                             </div>
+                           </form>
+                         </div>
+                       </div>
+                     </div>
+
                 <div class="card-body">
+                  <div class="profile">
                     <?php if(session('status')): ?>
                         <div class="alert alert-success" role="alert">
                             <?php echo e(session('status')); ?>
@@ -44,10 +75,13 @@
                     <p class="lead"><?php echo e($profile->designation); ?></p>
                       <?php else: ?>
                     <p></p>
-
                       <?php endif; ?>
                     </div>
+                  </div>
+                </div>
+
                       <div class="col-md-8" >
+                        <div class="posts">
                         <?php if(count($posts) > 0): ?>
                         <?php $__currentLoopData = $posts ->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <h4><?php echo e($post->post_title); ?></h4>
@@ -82,11 +116,14 @@
                             <?php endif; ?>
                             <?php echo e($posts->links()); ?>
 
-                      </div>
+
                 </div>
             </div>
-        </div>
+      </div>
     </div>
+  </div>
+    </div>
+  </div>
 </div>
 <?php $__env->stopSection(); ?>
 

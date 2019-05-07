@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Category;
 use App\Post;
 use App\Like;
+use App\Profile;
 use App\Dislike;
 use App\Comment;
 use Auth;
@@ -59,7 +60,7 @@ class PostController extends Controller
           ->select('users.name', 'comments.*')
           ->where(['posts.id' => $post_id])
           ->get();
-    
+
     return view('posts.view', ['posts' => $posts,'categories' => $categories,
     'likeCtr' => $likeCtr,'dislikeCtr' => $dislikeCtr,'comments' =>$comments]);
   }
@@ -167,5 +168,11 @@ class PostController extends Controller
     return redirect("/view/{$post_id}")->with('response','Comment Added Successfully');
 
   }
-
+ public function search(Request $request){
+   $user_id = Auth::user()->id;
+   $profile = Profile::find($user_id);
+   $keyword = $request->input('search');
+   $posts = Post::where('post_title','LIKE','%'.$keyword.'%')->get();
+   return view('posts.searchposts',['profile' => $profile,'posts' => $posts]);
+ }
 }

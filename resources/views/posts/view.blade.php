@@ -78,6 +78,7 @@
                             <p> No Post Available</p>
 
                             @endif
+                            <hr>
 
                       </div>
                 </div>
