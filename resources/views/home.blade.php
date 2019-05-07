@@ -93,17 +93,18 @@
                                <span class="far fa-eye" > VIEW </span>
                              </a>
                            </li>
-
-                           <li role="presentation">
-                             <a href='{{ url("/edit/{$post->id}") }}'>
-                               <span class="fas fa-edit" > Edit</span>
-                             </a>
-                           </li>
+                            @if(Auth::id() ==12)
+                               <li role="presentation">
+                                 <a href='{{ url("/edit/{$post->id}") }}'>
+                                  <span class="fas fa-edit" > Edit</span>
+                                </a>
+                               </li>
                            <li role="presentation">
                              <a href='{{ url("/delete/{$post->id}") }}'>
                                <i class="fas fa-trash-alt" >  Delete </i>
                              </a>
                            </li>
+                           @endif
                          </ul>
                         <cite style="">Posted on: {{ date('M j,Y H:i',
                            strtotime($post->updated_at))}}</cite>

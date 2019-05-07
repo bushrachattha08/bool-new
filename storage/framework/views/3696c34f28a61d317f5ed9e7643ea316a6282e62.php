@@ -41,7 +41,10 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item"><a class="nav-link" href="<?php echo e(url('/home')); ?>">Home</a></li>
                     <br/>
-                      <li class="nav-item"><a class="nav-link" href="<?php echo e(url('/post')); ?>">Add Post</a></li>
+                    <?php if(Auth::id() ==12): ?>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo e(url('/post')); ?>">Add Post</a></li>
+                    <?php endif; ?>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -64,9 +67,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <?php if(Auth::id() ==12): ?>
                                   <a class="dropdown-item" href="<?php echo e(url('profile')); ?>">Profile</a>
                                     <a class="dropdown-item" href="<?php echo e(url('category')); ?>">Category</a>
-
+                                  <?php endif; ?>
                                     <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -41,7 +41,10 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
                     <br/>
-                      <li class="nav-item"><a class="nav-link" href="{{ url('/post') }}">Add Post</a></li>
+                    @if(Auth::id() ==12)
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/post') }}">Add Post</a></li>
+                    @endif
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -64,9 +67,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @if(Auth::id() ==12)
                                   <a class="dropdown-item" href="{{ url('profile') }}">Profile</a>
                                     <a class="dropdown-item" href="{{ url('category') }}">Category</a>
-
+                                  @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

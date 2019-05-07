@@ -94,17 +94,18 @@
                                <span class="far fa-eye" > VIEW </span>
                              </a>
                            </li>
-
-                           <li role="presentation">
-                             <a href='<?php echo e(url("/edit/{$post->id}")); ?>'>
-                               <span class="fas fa-edit" > Edit</span>
-                             </a>
-                           </li>
+                            <?php if(Auth::id() ==12): ?>
+                               <li role="presentation">
+                                 <a href='<?php echo e(url("/edit/{$post->id}")); ?>'>
+                                  <span class="fas fa-edit" > Edit</span>
+                                </a>
+                               </li>
                            <li role="presentation">
                              <a href='<?php echo e(url("/delete/{$post->id}")); ?>'>
                                <i class="fas fa-trash-alt" >  Delete </i>
                              </a>
                            </li>
+                           <?php endif; ?>
                          </ul>
                         <cite style="">Posted on: <?php echo e(date('M j,Y H:i',
                            strtotime($post->updated_at))); ?></cite>
