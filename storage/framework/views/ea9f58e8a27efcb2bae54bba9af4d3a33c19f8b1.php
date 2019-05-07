@@ -7,10 +7,43 @@
      align-items: left;
    }
    .posts{
-     align-items: right;
+     align-items: center;
    }
    </style>
 <?php $__env->startSection('content'); ?>
+<div class="banner_area banner_2">
+    <img src="images/blog-banner.jpg" alt="" class="banner_img">
+    <div class="media profile_picture">
+      <div class="profile" alt="" class="circle">
+        <?php if(session('status')): ?>
+            <div class="alert alert-success" role="alert">
+                <?php echo e(session('status')); ?>
+
+            </div>
+        <?php endif; ?>
+        <div class="col-md-4">
+          <?php if(!empty($profile)): ?>
+          <img src="<?php echo e($profile->profile_pic); ?>"
+          class="" alt=""/>
+          <?php else: ?>
+          <img src="<?php echo e(url('images/avatar.png')); ?>"
+          class="avatar" alt=""/>
+          <?php endif; ?>
+          <?php if(!empty($profile)): ?>
+          <p class="media_body"><?php echo e($profile->name); ?></p>
+          <?php else: ?>
+      <p></p>
+          <?php endif; ?>
+          <?php if(!empty($profile)): ?>
+        <p class="media_body"><?php echo e($profile->designation); ?></p>
+          <?php else: ?>
+        <p></p>
+          <?php endif; ?>
+        </div>
+      </div>
+
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -48,44 +81,12 @@
                          </div>
                        </div>
                      </div>
-
-                <div class="card-body">
-                  <div class="profile">
-                    <?php if(session('status')): ?>
-                        <div class="alert alert-success" role="alert">
-                            <?php echo e(session('status')); ?>
-
-                        </div>
-                    <?php endif; ?>
-                    <div class="col-md-4">
-                      <?php if(!empty($profile)): ?>
-                      <img src="<?php echo e($profile->profile_pic); ?>"
-                      class="avatar" alt=""/>
-                      <?php else: ?>
-                      <img src="<?php echo e(url('images/avatar.png')); ?>"
-                      class="avatar" alt=""/>
-
-                      <?php endif; ?>
-                      <?php if(!empty($profile)): ?>
-                      <p class="lead"><?php echo e($profile->name); ?></p>
-                      <?php else: ?>
-                  <p></p>
-                      <?php endif; ?>
-                      <?php if(!empty($profile)): ?>
-                    <p class="lead"><?php echo e($profile->designation); ?></p>
-                      <?php else: ?>
-                    <p></p>
-                      <?php endif; ?>
-                    </div>
-                  </div>
-                </div>
-
                       <div class="col-md-8" >
                         <div class="posts">
                         <?php if(count($posts) > 0): ?>
                         <?php $__currentLoopData = $posts ->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <h4><?php echo e($post->post_title); ?></h4>
-                        <hr>
+
                         <img src=" <?php echo e($post->post_image); ?>" alt="">
                         <p><?php echo e(substr( $post->post_body, 0,150)); ?></p>
                          <ul class="nav nav-pills">

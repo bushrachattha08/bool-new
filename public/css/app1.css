@@ -1,0 +1,41 @@
+/* .banner_area {
+  background: #eff3f5;
+  line-height: 1px;
+} */
+.banner_area img {
+  max-width: 100%;
+}
+@media (min-width: 1850px) {
+  .banner_area img {
+    width: 100%;
+  }
+}
+.banner_area .profile_picture {
+  position: absolute;
+
+  left: 100px;
+  bottom: -60px;
+}
+.banner_area .profile_picture a img {
+  border: 5px solid #fff;
+}
+.banner_area .profile_picture .media_body {
+  padding-top: 30px;
+}
+.banner_area .profile_picture .media_body a {
+  font: 1000 260px/1 "Lato", sans-serif;
+  color: #fff;
+}
+.banner_area .profile_picture .media_body a:hover, .banner_area .profile_picture .media_body a:focus {
+  color: #eff3f5;
+}
+.banner_area .profile_picture .media_body h6 {
+  font: 400 14px/1 "Lato", sans-serif;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.banner_2 {
+  position: relative;
+  z-index: 1;
+}

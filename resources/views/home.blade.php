@@ -8,10 +8,42 @@
      align-items: left;
    }
    .posts{
-     align-items: right;
+     align-items: center;
    }
    </style>
 @section('content')
+<div class="banner_area banner_2">
+    <img src="images/blog-banner.jpg" alt="" class="banner_img">
+    <div class="media profile_picture">
+      <div class="profile" alt="" class="circle">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+        <div class="col-md-4">
+          @if(!empty($profile))
+          <img src="{{ $profile->profile_pic }}"
+          class="" alt=""/>
+          @else
+          <img src="{{ url('images/avatar.png') }}"
+          class="avatar" alt=""/>
+          @endif
+          @if(!empty($profile))
+          <p class="media_body">{{ $profile->name }}</p>
+          @else
+      <p></p>
+          @endif
+          @if(!empty($profile))
+        <p class="media_body">{{ $profile->designation }}</p>
+          @else
+        <p></p>
+          @endif
+        </div>
+      </div>
+
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -48,43 +80,12 @@
                          </div>
                        </div>
                      </div>
-
-                <div class="card-body">
-                  <div class="profile">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <div class="col-md-4">
-                      @if(!empty($profile))
-                      <img src="{{ $profile->profile_pic }}"
-                      class="avatar" alt=""/>
-                      @else
-                      <img src="{{ url('images/avatar.png') }}"
-                      class="avatar" alt=""/>
-
-                      @endif
-                      @if(!empty($profile))
-                      <p class="lead">{{ $profile->name }}</p>
-                      @else
-                  <p></p>
-                      @endif
-                      @if(!empty($profile))
-                    <p class="lead">{{ $profile->designation }}</p>
-                      @else
-                    <p></p>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-
                       <div class="col-md-8" >
                         <div class="posts">
                         @if(count($posts) > 0)
                         @foreach($posts ->all() as $post)
                         <h4>{{ $post->post_title}}</h4>
-                        <hr>
+
                         <img src=" {{ $post->post_image }}" alt="">
                         <p>{{ substr( $post->post_body, 0,150) }}</p>
                          <ul class="nav nav-pills">

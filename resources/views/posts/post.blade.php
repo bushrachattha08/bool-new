@@ -1,5 +1,17 @@
 @extends('layouts.app')
+<style type="text/css">
+   .avatar{
+     border-radius: 100%;
+     max-width: 100px;
+}
+   .profile{
+     align-items: left;
+   }
+   .posts{
+     align-items: right;
 
+   }
+   </style>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -16,7 +28,7 @@
                       <div class="form-group row">
                           <label for="post_title" class="col-md-4 col-form-label text-md-right">
                           Title</label>
-                          <div class="col-md-6">
+                          <div class="col-md-8">
                               <input id="post_title" type="text"
                               class="form-control @error('post_title') is-invalid @enderror"
                                name="post_title" value="{{ old('post_title') }}"
@@ -33,7 +45,7 @@
                       <div class="form-group row">
                           <label for="post_body" class="col-md-4 col-form-label text-md-right">
                             Post Body</label>
-                          <div class="col-md-6">
+                          <div class="col-md-8">
                               <textarea id="post_body"
                               class="form-control @error('post_body')
                               is-invalid @enderror" name="post_body"
@@ -52,7 +64,7 @@
                           <label for="category_id" class="col-md-4 col-form-label text-md-right">
                             Categories</label>
 
-                          <div class="col-md-6">
+                          <div class="col-md-8">
                               <select id="category_id" type="category_id"
                               class="form-control @error('category_id') is-invalid @enderror"
                                name="category_id" required>
@@ -75,7 +87,7 @@
                       <div class="form-group row">
                           <label for="post_image" class="col-md-4 col-form-label text-md-right">
                           Featured Image</label>
-                          <div class="col-md-6">
+                          <div class="col-md-8">
                               <input id="post_image" type="file"
                               class="form-control @error('designation') is-invalid @enderror"
                               name="post_image" required>
@@ -89,7 +101,7 @@
 
 
                       <div class="form-group row mb-0">
-                          <div class="col-md-6 offset-md-4">
+                          <div class="col-md-6 offset-md-6">
                               <button type="submit" class="btn btn-primary btn-large btn-block">
                                 Publish Post
                               </button>

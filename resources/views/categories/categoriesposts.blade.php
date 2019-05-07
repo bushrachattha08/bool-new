@@ -1,4 +1,16 @@
 @extends('layouts.app')
+<style type="text/css">
+   .avatar{
+     border-radius: 100%;
+     max-width: 100px;
+}
+   .profile{
+     align-items: left;
+   }
+   .posts{
+     align-items: center;
+   }
+   </style>
 
 @section('content')
 <div class="container">

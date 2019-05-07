@@ -1,3 +1,17 @@
+<style type="text/css">
+   .avatar{
+     border-radius: 100%;
+     max-width: 100px;
+}
+   .profile{
+     align-items: left;
+   }
+   .posts{
+     align-items: right;
+   }
+
+   </style>
+
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row justify-content-center">

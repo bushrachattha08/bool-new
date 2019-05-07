@@ -1,3 +1,16 @@
+<style type="text/css">
+   .avatar{
+     border-radius: 100%;
+     max-width: 100px;
+}
+   .profile{
+     align-items: left;
+   }
+   .posts{
+     align-items: right;
+
+   }
+   </style>
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row justify-content-center">
@@ -14,7 +27,7 @@
                       <div class="form-group row">
                           <label for="post_title" class="col-md-4 col-form-label text-md-right">
                           Title</label>
-                          <div class="col-md-6">
+                          <div class="col-md-8">
                               <input id="post_title" type="text"
                               class="form-control <?php if ($errors->has('post_title')) :
 if (isset($message)) { $messageCache = $message; }
@@ -39,7 +52,7 @@ endif; ?>
                       <div class="form-group row">
                           <label for="post_body" class="col-md-4 col-form-label text-md-right">
                             Post Body</label>
-                          <div class="col-md-6">
+                          <div class="col-md-8">
                               <textarea id="post_body"
                               class="form-control <?php if ($errors->has('post_body')) :
 if (isset($message)) { $messageCache = $message; }
@@ -66,7 +79,7 @@ endif; ?>
                           <label for="category_id" class="col-md-4 col-form-label text-md-right">
                             Categories</label>
 
-                          <div class="col-md-6">
+                          <div class="col-md-8">
                               <select id="category_id" type="category_id"
                               class="form-control <?php if ($errors->has('category_id')) :
 if (isset($message)) { $messageCache = $message; }
@@ -97,7 +110,7 @@ endif; ?>
                       <div class="form-group row">
                           <label for="post_image" class="col-md-4 col-form-label text-md-right">
                           Featured Image</label>
-                          <div class="col-md-6">
+                          <div class="col-md-8">
                               <input id="post_image" type="file"
                               class="form-control <?php if ($errors->has('designation')) :
 if (isset($message)) { $messageCache = $message; }
@@ -119,7 +132,7 @@ endif; ?>
 
 
                       <div class="form-group row mb-0">
-                          <div class="col-md-6 offset-md-4">
+                          <div class="col-md-6 offset-md-6">
                               <button type="submit" class="btn btn-primary btn-large btn-block">
                                 Publish Post
                               </button>

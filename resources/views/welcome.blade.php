@@ -12,7 +12,9 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #5B645B;
+
+                background-image: url("images/blogging.jpg");
+                background-size: cover;
                 color: #EAF5EA;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -47,9 +49,13 @@
             .title {
                 font-size: 84px;
             }
+            .avatar{
+              border-radius: 400%;
+              max-width: 300px;
+         }
 
             .links > a {
-                color: #EAF5EA;
+                color: blue;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -61,10 +67,19 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .logo{
+              border-radius: 100%;
+              max-width: 100px;
+            }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+          <div class="top-left links">
+      <img src="{{ url('images/bool2.png') }}"
+      class="logo" alt=""/>
+    </div>
+        <div >
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -81,9 +96,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    BOOL
-                </div>
 
+                </div>
+<!--
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -92,7 +107,7 @@
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>

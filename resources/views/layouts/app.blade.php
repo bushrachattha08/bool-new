@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app1.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome/css/font-awsome.css') }}" rel="stylesheet">
     <link rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -28,8 +29,10 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                BOOL
+                <a class="navbar-brand" href="{{ url('/') }}" >
+                  <img src="{{ url('images/bool2.png') }}"
+                  class="avatar" alt=""/>
+
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
