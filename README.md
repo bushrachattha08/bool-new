@@ -32,8 +32,6 @@ Coming soon...
 Issues
 For technical questions and bugs feel free to open one issue.
 
-Contribution
-Soon a roadmap for contribution will be added so everyone will be welcome to join.
 
 Stay In Touch
 For latest releases and announcements, follow @bushrayousaf on Twitter.
